@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.shape;
+package com.kodilla.testing.shape;
 
 public class Circle implements Shape{
     private final static String name = "Circle";

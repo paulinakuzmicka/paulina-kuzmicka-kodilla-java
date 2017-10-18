@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.shape;
+package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
 import java.util.List;

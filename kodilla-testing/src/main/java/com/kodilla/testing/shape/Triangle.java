@@ -1,4 +1,4 @@
-package com.kodilla.testing.com.kodilla.testing.shape;
+package com.kodilla.testing.shape;
 
 public class Triangle implements Shape {
     private final static String name = "Triangle";
@@ -45,10 +45,9 @@ public class Triangle implements Shape {
 
     @Override
     public double getField() {
-        double halfOfCircuit = getHalfOfCircuit();
         if(checkTriangleCondition()){
-            //Heron's pattern
-            return Math.sqrt(halfOfCircuit*(halfOfCircuit-edgeLengthA)*(halfOfCircuit-edgeLengthB)*(halfOfCircuit-edgeLengthC));
+            double halfOfCircuit = getHalfOfCircuit();
+            return heronsPattern(halfOfCircuit);
         } else {
             return 0;
         }
@@ -62,5 +61,9 @@ public class Triangle implements Shape {
 
     private double getHalfOfCircuit(){
         return (edgeLengthA + edgeLengthB + edgeLengthC)/2;
+    }
+
+    private double heronsPattern(double halfOfCircuit) {
+        return Math.sqrt(halfOfCircuit*(halfOfCircuit-edgeLengthA)*(halfOfCircuit-edgeLengthB)*(halfOfCircuit-edgeLengthC));
     }
 }

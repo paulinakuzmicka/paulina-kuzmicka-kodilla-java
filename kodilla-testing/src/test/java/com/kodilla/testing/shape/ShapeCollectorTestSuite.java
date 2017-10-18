@@ -1,13 +1,11 @@
-package com.kodilla.testing.com.kodilla.testing.shape;
+package com.kodilla.testing.shape;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class ShapeCollectorTestSuite {
@@ -72,7 +70,7 @@ public class ShapeCollectorTestSuite {
         //When
         Shape shapeResult = shapeCollector.getFigure(0);
         //Then
-        assertEquals(null, shapeResult);
+        assertNull(shapeResult);
     }
     @Test
     public void testShowFigures(){
