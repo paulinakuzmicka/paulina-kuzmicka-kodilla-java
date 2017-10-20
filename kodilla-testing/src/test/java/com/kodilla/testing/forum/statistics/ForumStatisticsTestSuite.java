@@ -13,6 +13,8 @@ import static org.mockito.Mockito.when;
 public class ForumStatisticsTestSuite {
 
     private Statistics statisticsMock;
+    private ForumStatistics forumStatistics;
+
 
     @Before
     public void beforeTest(){
@@ -24,13 +26,13 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.postsCount()).thenReturn(20);
         when(statisticsMock.commentsCount()).thenReturn(40);
+        forumStatistics = new ForumStatistics();
     }
 
     @Test
     public void testCalculateAdvStatisticsWithZeroPosts(){
         //Given
         when(statisticsMock.postsCount()).thenReturn(0);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -43,7 +45,6 @@ public class ForumStatisticsTestSuite {
     public void testCalculateAdvStatisticsWithThousandPosts(){
         //Given
         when(statisticsMock.postsCount()).thenReturn(1000);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -56,7 +57,6 @@ public class ForumStatisticsTestSuite {
     public void testCalculateAdvStatisticsWithZeroComments(){
         //Given
         when(statisticsMock.commentsCount()).thenReturn(0);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -70,7 +70,6 @@ public class ForumStatisticsTestSuite {
         //Given
         when(statisticsMock.commentsCount()).thenReturn(2);
         when(statisticsMock.postsCount()).thenReturn(10);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -84,7 +83,7 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testCalculateAdvStatisticsMoreCommentsThanPosts(){
         //Given
-        ForumStatistics forumStatistics = new ForumStatistics();
+
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -100,7 +99,6 @@ public class ForumStatisticsTestSuite {
         //Given
         List<String>listMock = new ArrayList<>();
         when(statisticsMock.usersNames()).thenReturn(listMock);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
@@ -118,7 +116,6 @@ public class ForumStatisticsTestSuite {
             listMock.add("User");
         }
         when(statisticsMock.usersNames()).thenReturn(listMock);
-        ForumStatistics forumStatistics = new ForumStatistics();
         //When
         forumStatistics.calculateAdvStatistics(statisticsMock);
         //Then
