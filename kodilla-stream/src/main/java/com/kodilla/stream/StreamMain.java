@@ -40,5 +40,16 @@ public class StreamMain {
 
         String beautifulText5 = poemBeautifier.beautify("Text to beautify", (text -> text.concat(String.valueOf(text.hashCode()))));
         System.out.println(beautifulText5);
+
+        String beautifulText6 = poemBeautifier.beautify("Tomek Z. rules!!!", (text -> {
+            StringBuilder sb = new StringBuilder();
+            sb.append("|");
+            for (int i = 0; i < text.length(); i++) {
+                sb.append(text.charAt(i));
+                sb.append("|");
+            }
+            return sb.toString();
+        }));
+        System.out.println(beautifulText6);
     }
 }
