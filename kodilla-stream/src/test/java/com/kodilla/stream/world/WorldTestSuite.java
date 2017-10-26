@@ -11,18 +11,19 @@ public class WorldTestSuite {
         //Given
         World world = new World();
 
-        Continent europa = new Continent();
-        Continent asia = new Continent();
-        Continent australia = new Continent();
+        Continent europa = new Continent("Europa");
+        Continent asia = new Continent("Asia");
+        Continent australia = new Continent("Australia");
 
-        Country poland = new Country();
-        Country hungary = new Country();
-        Country montenegro = new Country();
-        Country japan = new Country();
-        Country katar = new Country();
-        Country vietnam = new Country();
-        Country australiaCountry = new Country();
-        Country fiji = new Country();
+        Country poland = new Country("Poland");
+        Country hungary = new Country("Hungary");
+        Country montenegro = new Country("Montenegro");
+        Country japan = new Country("Japan");
+        Country katar = new Country("Katar");
+        Country vietnam = new Country("Vietnam");
+        Country australiaCountry = new Country("Australia");
+        Country fiji = new Country("Fiji");
+        Country russia = new Country("Russia");
 
         world.addContinent(europa);
         world.addContinent(asia);
@@ -31,18 +32,21 @@ public class WorldTestSuite {
         europa.addCountry(poland);
         europa.addCountry(hungary);
         europa.addCountry(montenegro);
+        europa.addCountry(russia);
 
         asia.addCountry(japan);
         asia.addCountry(katar);
         asia.addCountry(vietnam);
+        asia.addCountry(russia);
 
         australia.addCountry(australiaCountry);
         australia.addCountry(fiji);
 
         //When
-        BigDecimal totalPeopleExpected = new BigDecimal("8000008");
+
         BigDecimal totalPeople = world.getPeopleQuantity();
         //Then
+        BigDecimal totalPeopleExpected = new BigDecimal("9000009");
         Assert.assertEquals(totalPeopleExpected, totalPeople);
     }
 }

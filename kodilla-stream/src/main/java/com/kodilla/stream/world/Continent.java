@@ -5,6 +5,15 @@ import java.util.List;
 
 public final class Continent {
     private final List<Country> listOfCountriesOnContinent = new ArrayList<>();
+    private final String continentName;
+
+    public Continent(String continentName) {
+        this.continentName = continentName;
+    }
+
+    public String getContinentName() {
+        return continentName;
+    }
 
     public List<Country> getListOfCountriesOnContinent() {
         return new ArrayList<>(listOfCountriesOnContinent);
