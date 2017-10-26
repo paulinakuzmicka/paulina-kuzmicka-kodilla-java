@@ -39,6 +39,7 @@ public class ForumStatisticsTestSuite {
         assertEquals(0, forumStatistics.getPostsQty());
         assertEquals(0, forumStatistics.getPostsAvgPerUser(), 0.01);
         assertEquals(0, forumStatistics.getCommentsAvgPerPost(), 0.01);
+
     }
 
     @Test

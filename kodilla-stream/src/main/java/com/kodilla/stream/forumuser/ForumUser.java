@@ -3,22 +3,22 @@ package com.kodilla.stream.forumuser;
 import java.time.LocalDate;
 
 public class ForumUser {
-    private final int IDnumber;
+    private final int IDNumber;
     private String name;
     private char sex;
     private LocalDate birthdayDate;
     private int postsQty;
 
-    public ForumUser(int IDnumber, String name, char sex, LocalDate birthdayDate, int postsQty) {
-        this.IDnumber = IDnumber;
+    public ForumUser(int IDNumber, String name, char sex, LocalDate birthdayDate, int postsQty) {
+        this.IDNumber = IDNumber;
         this.name = name;
         this.sex = sex;
         this.birthdayDate = birthdayDate;
         this.postsQty = postsQty;
     }
 
-    public int getIDnumber() {
-        return IDnumber;
+    public int getIDNumber() {
+        return IDNumber;
     }
 
     public String getName() {
@@ -40,7 +40,7 @@ public class ForumUser {
     @Override
     public String toString() {
         return "ForumUser{" +
-                "IDnumber=" + IDnumber +
+                "IDNumber=" + IDNumber +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
                 ", birthdayDate=" + birthdayDate +
