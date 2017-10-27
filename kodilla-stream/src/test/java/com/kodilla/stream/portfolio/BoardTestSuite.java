@@ -163,8 +163,17 @@ public class BoardTestSuite {
                 .reduce(0, (sum, current)->sum+=current );
 
         double average = sumOfDays/tasksQty;
-        //Then
 
-        Assert.assertEquals(10.0, average, 0.0);
+        double avg = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(task -> Period.between(task.getCreated(), LocalDate.now()).getDays())
+                .mapToInt(Integer::intValue)
+                .average()
+                .getAsDouble();
+
+        //Then
+        Assert.assertEquals(10.0, average, 0.0001);
+        Assert.assertEquals(10.0, avg, 0.0001);
     }
 }
