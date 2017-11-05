@@ -17,10 +17,10 @@ public class FlightSearcher {
 
     private boolean findAirport(String airportName) throws RouteNotFoundException{
         if (airportMap.containsKey(airportName)) {
-            return airportMap.get(airportName).booleanValue();
+            return airportMap.get(airportName);
         }else{
             throw new RouteNotFoundException("Airport does not exist!");
-        }
+       }//poprawic, zeby dwa razy nie odpytywac.
     }
 
     private Map<String, Boolean> airportDataBase() {
