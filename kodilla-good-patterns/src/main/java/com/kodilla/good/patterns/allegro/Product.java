@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.allegro;
 
 import java.math.BigDecimal;
 
@@ -11,5 +11,12 @@ abstract class Product {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
+    }
+
+    @Override
+    public String toString() {
+        return  "productName='" + productName + '\'' +
+                ", productDescription='" + productDescription + '\'' +
+                ", productPrice=" + productPrice;
     }
 }

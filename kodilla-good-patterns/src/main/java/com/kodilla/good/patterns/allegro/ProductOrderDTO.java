@@ -1,19 +1,21 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.allegro;
 
 import java.time.LocalDateTime;
 
-public class ProductOrderRequest {
+public class ProductOrderDTO {
 
     private User user;
     private LocalDateTime orderDate;
     private Product product;
     private int quantity;
+    private boolean isSuccesfullySold;
 
-    public ProductOrderRequest(User user, LocalDateTime orderDate, Product product, int quantity) {
+    public ProductOrderDTO(final User user, final LocalDateTime orderDate, final Product product, final int quantity, final boolean isSuccesfullySold) {
         this.user = user;
         this.orderDate = orderDate;
         this.product = product;
         this.quantity = quantity;
+        this.isSuccesfullySold = isSuccesfullySold;
     }
 
     public User getUser() {
@@ -30,5 +32,9 @@ public class ProductOrderRequest {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public boolean isSuccesfullySold() {
+        return isSuccesfullySold;
     }
 }
