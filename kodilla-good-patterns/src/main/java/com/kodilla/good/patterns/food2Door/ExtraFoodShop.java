@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.food2Door;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class ExtraFoodShop implements FoodProducer {
-
     Map<Product, Integer> productsList;
 
     public ExtraFoodShop() {
@@ -23,9 +23,15 @@ public class ExtraFoodShop implements FoodProducer {
     }
 
     @Override
-    public boolean process() {
+    public boolean process(Customer customer, Map<Product, Integer>productsOrders) {
 
-
-        return false;
+        for (Map.Entry<Product, Integer> entry : productsOrders.entrySet()){
+            Optional<Integer> productQty = Optional.ofNullable(productsList.get(entry.getKey()));
+            if (productQty.orElse(0) < entry.getValue()) {
+                System.out.println("Extra Food Shop: We're sorry. Product is unavailable.");
+                return false;
+            }
+        }
+        return true;
     }
 }
