@@ -1,10 +1,11 @@
 package com.kodilla.good.patterns.food2Door;
 
 public class GlutenFreeProduct extends Product {
-    private String productDescripion;
+    private String productDescription;
+
     public GlutenFreeProduct(String productName, String productDescription) {
         super(productName);
-        this.productDescripion = productDescription;
+        this.productDescription = productDescription;
     }
 
     @Override
@@ -15,13 +16,13 @@ public class GlutenFreeProduct extends Product {
 
         GlutenFreeProduct that = (GlutenFreeProduct) o;
 
-        return productDescripion.equals(that.productDescripion);
+        return productDescription.equals(that.productDescription);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + productDescripion.hashCode();
+        result = 31 * result + productDescription.hashCode();
         return result;
     }
 }

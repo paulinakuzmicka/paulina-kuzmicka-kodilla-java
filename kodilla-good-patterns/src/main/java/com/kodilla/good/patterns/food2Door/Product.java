@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.food2Door;
 
-import java.math.BigDecimal;
-
 abstract class Product {
     private String productName;
 

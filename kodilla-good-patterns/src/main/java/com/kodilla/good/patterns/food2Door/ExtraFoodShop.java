@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public class ExtraFoodShop implements FoodProducer {
-    Map<Product, Integer> productsList;
+    private Map<Product, Integer> productsList;
 
     public ExtraFoodShop() {
         productsList = createProductList();

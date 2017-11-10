@@ -14,9 +14,15 @@ public class OrderRequest {
         this.productOrderRequest = productOrderRequest;
     }
 
-    public boolean processOrder() {
-        System.out.println("We're processing your order " + customer.getName());
-        return foodProducer.process(customer, productOrderRequest);
+    public Customer getCustomer() {
+        return customer;
+    }
 
+    public FoodProducer getFoodProducer() {
+        return foodProducer;
+    }
+
+    public Map<Product, Integer> getProductOrderRequest() {
+        return productOrderRequest;
     }
 }

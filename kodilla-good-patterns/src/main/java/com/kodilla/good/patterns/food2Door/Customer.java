@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.food2Door;
 
 public class Customer {
-    String name;
+    private String name;
 
     public Customer(String name) {
         this.name = name;

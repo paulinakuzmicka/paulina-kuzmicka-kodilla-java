@@ -7,6 +7,10 @@ import java.util.Optional;
 public class HealthyShop implements FoodProducer {
     private Map<Product, Integer> productsList;
 
+    public HealthyShop() {
+        productsList = createProductList();
+    }
+
     private Map<Product, Integer> createProductList() {
 
         Map<Product, Integer> productsList = new HashMap<>();
