@@ -1,19 +1,46 @@
 package com.kodilla.good.patterns.food2Door;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class OrderService {
 
+    private List<OrderRequest> orderRequestList;
 
-    public OrderRequest getOrderRequest() {
-        Customer customer = new Customer("JohDoe");
+    public OrderService() {
+        orderRequestList = getOrderRequest();
+    }
+
+    public List<OrderRequest> getOrderRequest() {
+        List<OrderRequest> orderRequestList = new ArrayList<>();
+
+        Customer customer = new Customer("JohnDoe");
         FoodProducer foodProducer = new GlutenFreeShop();
         Map<Product, Integer> productsList = new HashMap<>();
         productsList.put(new GlutenFreeProduct("bread", "Bread made from coconut flour"), 2);
         productsList.put(new GlutenFreeProduct("rice", "extraordinary white rice"), 3);
         productsList.put(new GlutenFreeProduct("cookies", "amaranth cookies with dactyls"), 1000);
 
-        return new OrderRequest(customer, foodProducer, productsList);
+        orderRequestList.add(new OrderRequest(customer, foodProducer, productsList));
+
+        Customer customer1 = new Customer("Malcolm");
+        FoodProducer foodProducer1 = new GlutenFreeShop();
+        Map<Product, Integer> productsList1 = new HashMap<>();
+        productsList.put(new GlutenFreeProduct("bread", "Bread made from coconut flour"), 2);
+        productsList.put(new GlutenFreeProduct("rice", "extraordinary white rice"), 3);
+        productsList.put(new GlutenFreeProduct("cookies", "amaranth cookies with dactyls"), 1);
+
+        orderRequestList.add(new OrderRequest(customer1, foodProducer1, productsList1));
+
+        return orderRequestList;
+    }
+
+    public void processAllOrders(List<OrderRequest> orderRequest) {
+
+        orderRequest.stream()
+                .map(n -> n.processOrder())
+                .forEach(t -> System.out.println("Order finished with success: " + t + "\n"));
     }
 }
