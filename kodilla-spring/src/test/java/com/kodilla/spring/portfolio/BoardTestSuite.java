@@ -1,5 +1,6 @@
 package com.kodilla.spring.portfolio;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,5 +29,9 @@ public class BoardTestSuite {
         System.out.println("To do list: " + board.getToDoList());
         System.out.println("In progress list: " + board.getInProgressList());
         System.out.println("Done list: " + board.getDoneList());
+
+        Assert.assertEquals(1, board.getToDoList().getTasks().size());
+        Assert.assertEquals(1, board.getInProgressList().getTasks().size());
+        Assert.assertEquals(1, board.getDoneList().getTasks().size());
     }
 }

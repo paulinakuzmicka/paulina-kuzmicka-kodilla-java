@@ -22,8 +22,4 @@ public class Board {
     public TaskList getDoneList() {
         return doneList;
     }
-
-    public boolean addTaskToTaskList(TaskList taskList, String taskDescription){
-        return taskList.addTask(taskDescription);
-    }
 }

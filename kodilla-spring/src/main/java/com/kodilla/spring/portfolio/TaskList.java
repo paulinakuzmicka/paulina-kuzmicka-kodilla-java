@@ -20,4 +20,8 @@ public class TaskList {
                 "tasks=" + tasks +
                 '}';
     }
+
+    public List<String> getTasks() {
+        return tasks;
+    }
 }
