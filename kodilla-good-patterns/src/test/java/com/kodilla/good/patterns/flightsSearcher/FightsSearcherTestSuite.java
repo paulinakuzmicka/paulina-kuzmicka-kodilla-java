@@ -107,4 +107,19 @@ public class FightsSearcherTestSuite {
         //Then
         Assert.assertEquals(expected, result);
     }
+
+    @Test
+    public void noAvailableConnectingFlightsTest() {
+        //Given
+        String arrivalAirport = "NYC";
+        String departureAirport = "GDA";
+        Set<List<Flight>> expected = new HashSet<List<Flight>>();
+        List<Flight> emptyList = new ArrayList<>();
+        expected.add(emptyList);
+        //When
+        when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
+        Set<List<Flight>> result = flightsService.availableConnectingFlights(arrivalAirport, departureAirport);
+        //Then
+        Assert.assertEquals(expected, result);
+    }
 }
