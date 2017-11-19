@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns.flightsSearcher;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class FlightsService {
     private FlightsDb flightsDb;
@@ -10,15 +10,35 @@ public class FlightsService {
         this.flightsDb = flightsDb;
     }
 
-    public Set<Flight> availableFlightsFrom(String arrivalAirport) {
-        return null;
+    public Set<Flight> availableFlightsFrom(String departureAirport) {
+        return flightsDb.getAvailableFlights().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
+                .collect(Collectors.toSet());
     }
 
-    public Set<Flight> availableFlightsTo(String departureAirport) {
-        return null;
+    public Set<Flight> availableFlightsTo(String arrivalAirport) {
+        return flightsDb.getAvailableFlights().stream()
+                .filter(flight -> flight.getArrivalAirport().equals(arrivalAirport))
+                .collect(Collectors.toSet());
     }
 
-    public Set<List<Flight>> availableConnectingFlights(String arrivalAirport, String departureAirport) {
-        return null;
+    public Set<List<Flight>> availableConnectingFlights(String departureAirport, String arrivalAirport) {
+        Set<List<Flight>> setOfFlights = new HashSet<>();
+
+        flightsDb.getAvailableFlights().stream()
+                .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
+                .forEach(flight -> {
+                    List temp = flightsDb.getAvailableFlights().stream()
+                            .filter(fl -> (flight.getArrivalAirport().equals(fl.getDepartureAirport()) && fl.getArrivalAirport().equals(arrivalAirport)))
+                            .collect(Collectors.toList());
+
+                    if (temp.size() > 0) {
+                        List<Flight> flightsRoute = new ArrayList<>();
+                        flightsRoute.add(flight);
+                        flightsRoute.addAll(temp);
+                        setOfFlights.add(flightsRoute);
+                    }
+                });
+        return setOfFlights;
     }
 }

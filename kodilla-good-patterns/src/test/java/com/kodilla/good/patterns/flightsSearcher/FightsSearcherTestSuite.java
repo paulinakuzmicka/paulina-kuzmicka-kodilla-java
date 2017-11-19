@@ -28,18 +28,20 @@ public class FightsSearcherTestSuite {
         availableFlights.add(new Flight("WRO", "NYC"));
         availableFlights.add(new Flight("GDA", "NYC"));
         availableFlights.add(new Flight("WAR", "NYC"));
+        availableFlights.add(new Flight("WRO", "GDA"));
     }
 
     @Test
     public void availableFlightsFromTest() {
         //Given
-        String arrivalAirport = "WRO";
+        String departureAirport = "WRO";
         Set<Flight> expected = new HashSet<>();
         expected.add(new Flight("WRO", "WAR"));
         expected.add(new Flight("WRO", "NYC"));
+        expected.add(new Flight("WRO", "GDA"));
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<Flight> result = flightsService.availableFlightsFrom(arrivalAirport);
+        Set<Flight> result = flightsService.availableFlightsFrom(departureAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
@@ -47,11 +49,11 @@ public class FightsSearcherTestSuite {
     @Test
     public void noAvailableFlightsFromTest() {
         //Given
-        String arrivalAirport = "NYC";
+        String departureAirport = "NYC";
         Set<Flight> expected = new HashSet<>();
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<Flight> result = flightsService.availableFlightsFrom(arrivalAirport);
+        Set<Flight> result = flightsService.availableFlightsFrom(departureAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
@@ -59,14 +61,14 @@ public class FightsSearcherTestSuite {
     @Test
     public void availableFlightsToTest() {
         //Given
-        String departureAirport = "NYC";
+        String arrivalAirport = "NYC";
         Set<Flight> expected = new HashSet<>();
         expected.add(new Flight("WRO", "NYC"));
         expected.add(new Flight("GDA", "NYC"));
         expected.add(new Flight("WAR", "NYC"));
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<Flight> result = flightsService.availableFlightsTo(departureAirport);
+        Set<Flight> result = flightsService.availableFlightsTo(arrivalAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
@@ -74,11 +76,11 @@ public class FightsSearcherTestSuite {
     @Test
     public void noAvailableFlightsToTest() {
         //Given
-        String departureAirport = "WRO";
+        String arrivalAirport = "WRO";
         Set<Flight> expected = new HashSet<>();
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<Flight> result = flightsService.availableFlightsTo(departureAirport);
+        Set<Flight> result = flightsService.availableFlightsTo(arrivalAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
@@ -86,24 +88,24 @@ public class FightsSearcherTestSuite {
     @Test
     public void availableConnectingFlightsTest() {
         //Given
-        String arrivalAirport = "WRO";
-        String departureAirport = "NYC";
-        Set<List<Flight>> expected = new HashSet<List<Flight>>();
-
-        List<Flight> wroWarWarGdaGdaNyc = new ArrayList<>();
-        wroWarWarGdaGdaNyc.add(new Flight("WRO", "WAR"));
-        wroWarWarGdaGdaNyc.add(new Flight("WAR", "GDA"));
-        wroWarWarGdaGdaNyc.add(new Flight("GDA", "NYC"));
+        String departureAirport = "WRO";
+        String arrivalAirport = "NYC";
+        Set<List<Flight>> expected = new HashSet<>();
 
         List<Flight> wroWarWarNyc = new ArrayList<>();
         wroWarWarNyc.add(new Flight("WRO", "WAR"));
         wroWarWarNyc.add(new Flight("WAR", "NYC"));
 
-        expected.add(wroWarWarGdaGdaNyc);
         expected.add(wroWarWarNyc);
+
+        List<Flight> wroGdaGdaNyc = new ArrayList<>();
+        wroGdaGdaNyc.add(new Flight("WRO", "GDA"));
+        wroGdaGdaNyc.add(new Flight("GDA", "NYC"));
+
+        expected.add(wroGdaGdaNyc);
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<List<Flight>> result = flightsService.availableConnectingFlights(arrivalAirport, departureAirport);
+        Set<List<Flight>> result = flightsService.availableConnectingFlights(departureAirport, arrivalAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
@@ -111,14 +113,14 @@ public class FightsSearcherTestSuite {
     @Test
     public void noAvailableConnectingFlightsTest() {
         //Given
-        String arrivalAirport = "NYC";
-        String departureAirport = "GDA";
-        Set<List<Flight>> expected = new HashSet<List<Flight>>();
+        String departureAirport = "NYC";
+        String arrivalAirport = "GDA";
+        Set<List<Flight>> expected = new HashSet<>();
         List<Flight> emptyList = new ArrayList<>();
-        expected.add(emptyList);
+
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
-        Set<List<Flight>> result = flightsService.availableConnectingFlights(arrivalAirport, departureAirport);
+        Set<List<Flight>> result = flightsService.availableConnectingFlights(departureAirport, arrivalAirport);
         //Then
         Assert.assertEquals(expected, result);
     }
