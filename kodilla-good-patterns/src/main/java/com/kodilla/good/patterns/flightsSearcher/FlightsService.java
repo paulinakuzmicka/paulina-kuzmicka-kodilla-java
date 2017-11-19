@@ -28,7 +28,7 @@ public class FlightsService {
         flightsDb.getAvailableFlights().stream()
                 .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
                 .forEach(flight -> {
-                    List temp = flightsDb.getAvailableFlights().stream()
+                    List <Flight> temp = flightsDb.getAvailableFlights().stream()
                             .filter(fl -> (flight.getArrivalAirport().equals(fl.getDepartureAirport()) && fl.getArrivalAirport().equals(arrivalAirport)))
                             .collect(Collectors.toList());
 

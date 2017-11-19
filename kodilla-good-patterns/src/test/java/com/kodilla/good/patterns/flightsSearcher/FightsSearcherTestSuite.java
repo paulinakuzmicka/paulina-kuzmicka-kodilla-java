@@ -116,7 +116,6 @@ public class FightsSearcherTestSuite {
         String departureAirport = "NYC";
         String arrivalAirport = "GDA";
         Set<List<Flight>> expected = new HashSet<>();
-        List<Flight> emptyList = new ArrayList<>();
 
         //When
         when(flightsDbMock.getAvailableFlights()).thenReturn(availableFlights);
