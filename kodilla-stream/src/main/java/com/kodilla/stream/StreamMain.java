@@ -112,6 +112,10 @@ public class StreamMain {
 //
 //        System.out.println(theResultStringOfBooks);
 
-
+        int i=1;
+        for(;i<5;i++){
+            i*=i;
+        }
+        System.out.println(i);
     }
 }
