@@ -27,14 +27,14 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "productId")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
