@@ -5,8 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(name = "Company.retrieveNameLike1st3Letters",
-query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT(:NAME , '%')")
+@NamedNativeQuery(name = "Company.retrieveCompanyNameLike",
+query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%', :NAME , '%')")
 
 @Entity
 @Table(name = "COMPANIES")
