@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public final class Facade {
+public final class CompanyEmployeeSearchFacade {
     @Autowired
-    CompanyDao companyDao;
+    private CompanyDao companyDao;
 
     @Autowired
-    EmployeeDao employeeDao;
+    private EmployeeDao employeeDao;
 
     public List<Company> retrieveCompanyLike(String fragmentOfTheName) {
         return companyDao.retrieveCompanyNameLike(fragmentOfTheName);

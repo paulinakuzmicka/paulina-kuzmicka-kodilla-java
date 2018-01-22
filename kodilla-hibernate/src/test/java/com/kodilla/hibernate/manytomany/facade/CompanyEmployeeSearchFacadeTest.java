@@ -3,7 +3,6 @@ package com.kodilla.hibernate.manytomany.facade;
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
-import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,10 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class FacadeTest {
+public class CompanyEmployeeSearchFacadeTest {
 
     @Autowired
-    private Facade facade;
+    private CompanyEmployeeSearchFacade companyEmployeeSearchFacade;
     @Autowired
     private CompanyDao companyDao;
 
@@ -61,7 +60,7 @@ public class FacadeTest {
         resultEmployeeList.add(johnSmith);
         resultEmployeeList.add(lindaSmith);
         //When
-        List<Company> queryResult = facade.retrieveCompanyLike("oft");
+        List<Company> queryResult = companyEmployeeSearchFacade.retrieveCompanyLike("oft");
         //Then
         Assert.assertEquals(resultCompanyList.size(), queryResult.size());
         //CleanUp
@@ -112,7 +111,7 @@ public class FacadeTest {
 
 
         //When
-        List<Employee> queryResult = facade.retrieveEmployeeLike("mit");
+        List<Employee> queryResult = companyEmployeeSearchFacade.retrieveEmployeeLike("mit");
         //Then
         Assert.assertEquals(resultEmployeeList.size(), queryResult.size());
 
