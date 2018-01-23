@@ -13,4 +13,11 @@ public  class OrderDto {
     public void addItem(final ItemDto item){
         items.add(item);
     }
+
+    @Override
+    public String toString() {
+        return "OrderDto{" +
+                "items=" + items +
+                '}';
+    }
 }
