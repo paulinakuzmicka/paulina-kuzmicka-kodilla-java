@@ -26,5 +26,7 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-aop')
+	//compile files('lib/commons-collections4-4.1-src.jar')
+	compile ('org.apache.commons:commons-collections4:4.2-SNAPSHOT')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
