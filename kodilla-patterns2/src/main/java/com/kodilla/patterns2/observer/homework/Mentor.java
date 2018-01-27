@@ -1,9 +1,6 @@
 package com.kodilla.patterns2.observer.homework;
 
-import org.apache.commons.collections4.map.LinkedMap;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class Mentor implements Observer {
     private final String mentorName;
@@ -15,14 +12,19 @@ public class Mentor implements Observer {
 
     @Override
     public void update(Student student) {
-        LinkedMap homework = student.getHomeworks();
+        Map<String, String> homework = student.getHomeworks();
+        String lastKey = "";
+        for (String entry : homework.keySet()) {
+            lastKey=entry;
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append("Student ");
         sb.append(student.getSurname());
         sb.append(" from ");
         sb.append(student.getCourseName());
         sb.append(" course send new homework:\n");
-        sb.append(homework.get(homework.indexOf(homework.lastKey())));
+        sb.append(lastKey);
         System.out.println(sb);
         updateCount++;
     }

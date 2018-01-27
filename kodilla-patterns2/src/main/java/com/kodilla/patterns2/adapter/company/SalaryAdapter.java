@@ -5,7 +5,6 @@ import com.kodilla.patterns2.adapter.company.oldhrsystem.SalaryCalculator;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
 
 public class SalaryAdapter extends SalaryAdaptee implements SalaryCalculator {

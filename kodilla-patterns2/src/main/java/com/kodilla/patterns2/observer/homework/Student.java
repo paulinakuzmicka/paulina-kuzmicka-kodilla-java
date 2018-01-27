@@ -1,18 +1,17 @@
 package com.kodilla.patterns2.observer.homework;
 
 import java.util.*;
-import org.apache.commons.collections4.map.*;
 
 public class Student implements Observable {
     private final String surname;
     private final List<Observer> observers;
-    private LinkedMap<String, String> homeworks;
+    private Map<String, String> homeworks;
     private final KodillaCourses courseName;
 
     public Student(String surname, KodillaCourses courseName) {
         this.surname = surname;
         observers = new ArrayList<>();
-        homeworks = new LinkedMap<>();
+        homeworks = new LinkedHashMap<>();
         this.courseName = courseName;
     }
 
@@ -42,7 +41,7 @@ public class Student implements Observable {
         return surname;
     }
 
-    public LinkedMap<String, String> getHomeworks() {
+    public Map<String, String> getHomeworks() {
         return homeworks;
     }
 

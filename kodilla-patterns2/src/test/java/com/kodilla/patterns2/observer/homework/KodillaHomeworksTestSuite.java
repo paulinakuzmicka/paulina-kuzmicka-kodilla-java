@@ -23,9 +23,10 @@ public class KodillaHomeworksTestSuite {
         janKowalski.addHomework("6.4", "ShapeCollector");
         monikaNowak.addHomework("6.5","BookLibrary Mock");
         adamKnapik.addHomework("1.1","index.html");
+        janKowalski.addHomework("6.5", "Book library with mock");
 
         //Then
-        Assert.assertEquals(2,michaelBrown.getUpdateCount());
+        Assert.assertEquals(3,michaelBrown.getUpdateCount());
         Assert.assertEquals(1,lukasWatson.getUpdateCount());
     }
 }
