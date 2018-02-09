@@ -1,6 +1,5 @@
 package com.kodilla.stream.portfolio;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

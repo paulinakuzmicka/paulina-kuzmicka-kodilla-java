@@ -1,15 +1,12 @@
 package com.kodilla.testing.library;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {

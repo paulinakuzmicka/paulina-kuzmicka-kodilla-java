@@ -1,7 +1,6 @@
 package com.kodilla.patterns2.observer.forum;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
