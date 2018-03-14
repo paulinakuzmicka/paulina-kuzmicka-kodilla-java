@@ -23,12 +23,12 @@ Testing:
 - Unit tests (JUnit, Mockito)
 - Integration tests (Selenium)
 
-Spring
+Spring:
 - Beans
 - Components
 - Dependency Injection
 
-Hibernate
+Hibernate:
 - Entities
 - Entity relationship
 - HQL, Named Queries
